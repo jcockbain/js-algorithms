@@ -4,7 +4,7 @@ const isPalindrome = (string) => {
   return cleaned
     === cleaned
       .split('')
-      .reverse('')
+      .reverse()
       .join('');
 };
 module.exports = {
