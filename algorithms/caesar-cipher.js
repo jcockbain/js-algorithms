@@ -9,7 +9,7 @@ const cipher = (phrase, diff) => {
       output += letter;
       continue;
     }
-    let index = alphabet.indexOf(letter) + diff % 26;
+    let index = (alphabet.indexOf(letter) + diff) % 26;
     if (index > 25) {
       index -= 26;
     }
