@@ -10,7 +10,7 @@ class Stats {
   }
 
   static round(x, round = 2) {
-    return Math.round(x * Math.pow(10, round)) / Math.pow(10, round);
+    return Math.round(x * 10 ** round) / 10 ** round;
   }
 
   mean() {
