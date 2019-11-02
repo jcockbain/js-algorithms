@@ -4,7 +4,7 @@ const { Stats } = require('../algorithms/averages');
 const stat1 = new Stats([1, 2, 3, 4, 4, 5, 5]);
 const stat2 = new Stats([1, 1, 2, 2, 3, 3, 4, 4]);
 
-describe.only('Mean', () => {
+describe('Mean', () => {
   it('Should implement mean', () => {
     assert.equal(Stats.round(stat2.mean()), 2.5);
     assert.equal(Stats.round(stat1.mean()), 3.43);
@@ -25,7 +25,7 @@ describe('Mode', () => {
   });
 });
 
-describe.only('Round', () => {
+describe('Round', () => {
   it('Should implement round', () => {
     assert.equal(Stats.round(2.4545), 2.45);
   });
