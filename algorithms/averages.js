@@ -44,10 +44,9 @@ class Stats {
 
   median() {
     const sortedArray = this.list.sort();
-    if (sortedArray.length % 2 === 1) {
-      return sortedArray[Math.floor(sortedArray.length / 2)];
-    }
-    return (sortedArray[sortedArray.length / 2] + sortedArray[(sortedArray.length / 2) - 1]) / 2;
+    return (sortedArray.length % 2 === 0)
+      ? (sortedArray[sortedArray.length / 2] + sortedArray[(sortedArray.length / 2) - 1]) / 2
+      : sortedArray[Math.floor(sortedArray.length / 2)];
   }
 }
 
