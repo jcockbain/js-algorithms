@@ -1,0 +1,55 @@
+
+const arrayHasOneElement = (array) => {
+  const values = new Set(array);
+  return (values.size <= 1);
+};
+
+class Stats {
+  constructor(array) {
+    this.list = array;
+  }
+
+  static round(x, round = 2) {
+    return Math.round(x * Math.pow(10, round)) / Math.pow(10, round);
+  }
+
+  mean() {
+    const sum = this.list.reduce((a, b) => a + b, 0);
+    return sum / this.list.length;
+  }
+
+  mode() {
+    const counter = {};
+    this.list.forEach((num) => {
+      counter[num] = counter[num] + 1 || 1;
+    });
+    let maxCount = 0;
+    let max = [0];
+    if (arrayHasOneElement(Object.values(counter))) {
+      return [];
+    }
+    Object.keys(counter).forEach((num) => {
+      if (counter[num] === maxCount) {
+        max.push(parseInt(num, 0));
+        maxCount = counter[num];
+      } else if (counter[num] > maxCount) {
+        max = [];
+        max.push(parseInt(num, 0));
+        maxCount = counter[num];
+      }
+    });
+    return max;
+  }
+
+
+  median() {
+    if (this.list.length % 2 === 1) {
+      return this.list[(this.list.length / 2) - 0.5];
+    }
+    return (this.list[this.list.length / 2] + this.list[(this.list.length / 2) - 1]) / 2;
+  }
+}
+
+module.exports = {
+  Stats,
+};
