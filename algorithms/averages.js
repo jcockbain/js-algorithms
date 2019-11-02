@@ -23,19 +23,19 @@ class Stats {
     this.list.forEach((num) => {
       counter[num] = counter[num] + 1 || 1;
     });
+    let max = [];
     let maxCount = 0;
-    let max = [0];
     if (arrayHasOneElement(Object.values(counter))) {
       return [];
     }
     Object.keys(counter).forEach((num) => {
-      if (counter[num] === maxCount) {
-        max.push(parseInt(num, 0));
-        maxCount = counter[num];
-      } else if (counter[num] > maxCount) {
-        max = [];
-        max.push(parseInt(num, 0));
-        maxCount = counter[num];
+      const value = parseFloat(num);
+      const count = counter[value];
+      if (count > maxCount) {
+        max = [value];
+        maxCount = count;
+      } else if (count === maxCount) {
+        max.push(value);
       }
     });
     return max;
