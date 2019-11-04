@@ -1,6 +1,6 @@
 const assert = require('assert');
 
-const { maxProfit } = require('../algorithms/maximum-profits');
+const { maxProfit } = require('../../algorithm-problems/maximum-profits');
 
 describe('Max Profit', () => {
   it('Should return minimum buy price and maximum sell price', () => {
